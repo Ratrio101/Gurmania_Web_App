@@ -1,3 +1,3 @@
 # Gurmania_Web_App
 
-This is my very first React.js + Express.js web application
+Another culinary web application on the MERN stack, which I developed in the summer of 2024 for my best friend as part of her internship at the university.
