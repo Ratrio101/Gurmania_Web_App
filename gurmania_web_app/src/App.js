@@ -5,10 +5,13 @@ import logo from './logo.png';
 import CarouselComponent from './CarouselComponent';
 import CurrentYear from './CurrentYear';
 import { Helmet } from 'react-helmet';
+import AdminGreeting from './components/AdminGreeting';
+import { jwtDecode } from 'jwt-decode';
 
 function App({ token, setToken }) {
 
   const [username, setUsername] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
 
 	const handleLogout = () => {
 		setToken('');
@@ -28,6 +31,14 @@ function App({ token, setToken }) {
 			localStorage.removeItem('username');
 			setUsername('');
 		  }
+      try {
+        const decodedToken = jwtDecode(token);
+        if (decodedToken.role === 'admin') {
+            setIsAdmin(true);
+        }
+    } catch (error) {
+        console.error('Ошибка декодирования токена:', error);
+    }
 	}, [token]);
 
   return (
@@ -62,7 +73,7 @@ function App({ token, setToken }) {
         </div>
     </header>
 
-      <CarouselComponent />
+    {isAdmin && <AdminGreeting />}
 
       <div className="content">
 			   <h1 align = "center">Мы рады приветствовать Вас в веб-приложении «Гурмания»!</h1>

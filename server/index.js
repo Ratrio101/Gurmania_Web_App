@@ -17,6 +17,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
+app.use('/admin', require('./routes/admin'));
+
 app.use('/auth', require('./routes/auth'));
 app.use('/recipes', require('./routes/recipes'));
 app.use('/comments', require('./routes/comments'));

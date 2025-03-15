@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import './index.css';
+import AdminUsers from './components/AdminUsers';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import News from './News';
@@ -13,7 +14,6 @@ import PrivacyPolicy from './PrivacyPolicy'
 import AddRecipe from './AddRecipe';
 import RecipeDetails from './RecipeDetails';
 import NotFound from './NotFound';
-import AdminPanel from './AdminPanel';
 import NewsDetail from './NewsDetail';
 
 const Main = () => {
@@ -60,8 +60,8 @@ const Main = () => {
         <Route path="/new_recipe" element={<ProtectedRoute token={token}><AddRecipe token={token} setToken={setToken} /></ProtectedRoute>} />
         <Route path="/recipes/:id" element={<RecipeDetails token={token} setToken={setToken} username={username}/>} />
         <Route path="*" element={<NotFound token={token} setToken={setToken} username={username}/>} />
-        <Route path="/admin" element={<AdminPanel token={token} setToken={setToken} username={username}/>} />
         <Route path="/news/:id" element={<NewsDetail token = {token} setToken={setToken} username={username}/>} />
+        <Route path="/admin/users" element={<ProtectedRoute token={token} isAdminRoute><AdminUsers token={token} /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );

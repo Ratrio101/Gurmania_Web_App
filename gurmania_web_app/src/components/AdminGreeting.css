@@ -1,0 +1,52 @@
+/* AdminGreeting.css */
+.admin-greeting {
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    color: #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.greeting-text {
+    font-size: 3rem;
+    font-family: 'Cinzel', serif; /* Шрифт в стиле фэнтези */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.subtext {
+    font-size: 1.5rem;
+    font-style: italic;
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.warcraft-logo {
+    width: 200px;
+    height: 200px;
+    background: url('warcraft.jpeg') no-repeat center center;
+    background-size: contain;
+    margin: 20px auto;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

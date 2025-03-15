@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).send('Неверный ник / пароль');
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user._id, role: user.role }, 'your_jwt_secret', { expiresIn: '1h' });
         res.json({ token, userId: user._id, username: user.username });
     } catch (err) {
         console.error(err);
